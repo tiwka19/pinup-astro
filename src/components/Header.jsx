@@ -5,6 +5,7 @@ import React from 'react'
 const navLinks = [
 	{ title: 'Басты бет', url: '/' },
 	{ title: 'Articles', url: '/blog' },
+	{ title: 'Download', url: '/download' },
 ]
 
 const Header = () => {
