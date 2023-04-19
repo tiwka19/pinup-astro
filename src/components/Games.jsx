@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import { Tab } from '@headlessui/react'
-import {
-	ChevronDoubleRightIcon,
-	MagnifyingGlassIcon,
-} from '@heroicons/react/24/solid'
+
 
 import './Games.css'
 const AllGames = [
