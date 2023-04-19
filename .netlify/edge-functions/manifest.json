@@ -1,0 +1,17 @@
+{
+  "functions": [
+    {
+      "function": "entry",
+      "path": "/"
+    },
+    {
+      "function": "entry",
+      "path": "/blog"
+    },
+    {
+      "function": "entry",
+      "pattern": "^/blog/([^/]+?)/?$"
+    }
+  ],
+  "version": 1
+}
