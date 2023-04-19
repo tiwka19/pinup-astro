@@ -4,7 +4,7 @@ interface WPGraphQLParams {
 }
 
 export async function wpquery({ query, variables = {} }: WPGraphQLParams) {
-	const res = await fetch('http://pinup4.local/graphql', {
+	const res = await fetch('https://motion-mat.net/graphql', {
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json',
