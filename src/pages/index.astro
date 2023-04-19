@@ -1,11 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro'
 import Games from '../components/Games'
-import i18next, { t, changeLanguage } from 'i18next'
-import { Trans, HeadHrefLangs } from 'astro-i18next/components'
-import { wpquery } from '../data/wordpress'
 
-changeLanguage('en')
+import { wpquery } from '../data/wordpress'
 
 const data = await wpquery({
 	query: `
@@ -33,13 +30,6 @@ const data = await wpquery({
 <MainLayout title='Website title' description='Website Description'>
 	<main>
 		<div class='container'>
-			<h1 class='mt-5 font-bold text-5xl mb-5'>
-				<Trans i18nKey='home.subtitle'>
-					This is a <em>more complex</em> string to translate, mixed with <strong
-						>html elements
-					</strong> such as <a href='https://example.com/'>a cool link</a>!
-				</Trans>
-			</h1>
 			<p class='max-w-[880px]'>
 				Pin up онлайн-казиносы неліктен сенің сеніміңе толықтай лайық екенің
 				білмейсің бе?! Онда сенің назарына, дәл pin up онлайн-казиносын тандау

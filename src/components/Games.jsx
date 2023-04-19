@@ -79,7 +79,7 @@ const Games = () => {
 								className='rounded-full bg-dark py-2 px-5 text-md outline-none'
 							/>
 							<div className='absolute right-4 top-3'>
-								<MagnifyingGlassIcon className='w-5 h-5' />
+								{/* <MagnifyingGlassIcon className='w-5 h-5' /> */}
 							</div>
 						</form>
 					</Tab.List>
@@ -88,7 +88,7 @@ const Games = () => {
 							<ul className='columns-5 mb-3'>
 								{AllGames.map((game, index) => (
 									<li
-										key={game.index}
+										key={index}
 										className='bg-dark rounded-lg w-full overflow-hidden'
 									>
 										<div className='relative group/item'>
@@ -124,7 +124,7 @@ const Games = () => {
 									href=''
 									className='flex items-center justify-end gap-2 hover:text-yellow transition-colors'
 								>
-									More <ChevronDoubleRightIcon className='h-5 w-5' />
+									{/* More <ChevronDoubleRightIcon className='h-5 w-5' /> */}
 								</a>
 							</div>
 						</Tab.Panel>
@@ -168,7 +168,7 @@ const Games = () => {
 									href=''
 									className='flex items-center justify-end gap-2 hover:text-yellow transition-colors'
 								>
-									More <ChevronDoubleRightIcon className='h-5 w-5' />
+									{/* More <ChevronDoubleRightIcon className='h-5 w-5' /> */}
 								</a>
 							</div>
 						</Tab.Panel>
