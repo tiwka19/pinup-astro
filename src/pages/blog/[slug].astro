@@ -1,49 +1,30 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro'
-import { wpquery } from '../../data/wordpress'
+import { fetchAPI } from '../../data/wordpress'
 
+const { slug } = Astro.params
+
+let res = await fetch(`https://motion-mat.net/wp-json/wp/v2/posts?slug=${slug}`)
+let [post] = await res.json()
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
 export async function getStaticPaths() {
-	const data = await wpquery({
-		query: `
-      query LoadAllPosts {
-        posts {
-          nodes {
-            title
-            slug
-            featuredImage {
-              node {
-                mediaItemUrl
-                srcSet
-                sizes
-                altText
-              }
-            }
-            content(format: RENDERED)
-            author {
-              node {
-                name
-              }
-            }
-          }
-        }
-      }
-    `,
-	})
-	return data.posts.nodes.map((post: any) => {
-		return {
-			params: { slug: post.slug },
-			props: { post },
-		}
-	})
+	let data = await fetch('https://motion-mat.net/wp-json/wp/v2/posts')
+	let posts = await data.json()
+
+	return posts.map(post => ({
+		params: { slug: post.slug },
+		props: { post: post },
+	}))
 }
-const { post } = Astro.props
 ---
 
 <MainLayout>
 	<div class='container'>
-		<h1 class='text-2xl font-bold pt-5'>{post.title}</h1>
+		<h1 class='text-2xl font-bold pt-5'>{post.title.rendered}</h1>
 		<article class='prose lg:prose-xl pt-5 prose-invert'>
-			<Fragment set:html={post.content} />
+			<Fragment set:html={post.content.rendered} />
 		</article>
 	</div>
 </MainLayout>

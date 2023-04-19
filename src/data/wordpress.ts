@@ -1,26 +1,25 @@
+import dotenv from 'dotenv'
+dotenv.config()
+const API_URL = process.env.WP_URL
+
 interface WPGraphQLParams {
 	query: string
 	variables?: object
 }
 
-export async function wpquery({ query, variables = {} }: WPGraphQLParams) {
-	const res = await fetch('https://motion-mat.net/graphql', {
-		method: 'post',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			query,
-			variables,
-		}),
+export async function fetchAPI({ query, variables = {} }: WPGraphQLParams) {
+	const headers = { 'Content-Type': 'application/json' }
+	const res = await fetch(API_URL, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ query, variables }),
 	})
 
-	if (!res.ok) {
-		console.error(res)
-		return {}
+	const json = await res.json()
+	if (json.errors) {
+		console.log(json.errors)
+		throw new Error('Failed to fetch API')
 	}
 
-	const { data } = await res.json()
-
-	return data
+	return json.data
 }
