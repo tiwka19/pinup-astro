@@ -1,0 +1,4 @@
+.react-simple-star-rating span {
+	display: flex;
+	gap: 10px;
+}
