@@ -2,39 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro'
 import { wpquery } from '../../data/wordpress'
 
-export async function getStaticPaths() {
-	const data = await wpquery({
-		query: `
-		query LoadAllPosts {
-			posts {
-				nodes {
-					slug
-					title
-					featuredImage {
-						node {
-							mediaItemUrl
-							sizes
-							srcSet
-							altText
-						}
-					}
-					content(format: RENDERED)
-					seo {
-						metaDesc
-						title
-					}
-				}
-			}
-		}
-    `,
-	})
-	return data.posts.nodes.map((post: any) => {
-		return {
-			params: { slug: post.slug },
-			props: { post },
-		}
-	})
-}
+
 const { post } = Astro.props
 ---
 
