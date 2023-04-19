@@ -2,27 +2,8 @@
 import MainLayout from '../../layouts/MainLayout.astro'
 import { wpquery } from '../../data/wordpress'
 
-const data = await wpquery({
-	query: `
-	query LoadPostsExcerpt {
-			posts {
-				nodes {
-					slug
-					title
-					excerpt
-					featuredImage {
-						node {
-							mediaItemUrl
-							sizes
-							srcSet
-							altText
-						}
-					}
-				}
-			}
-		}
-  `,
-})
+let res = await fetch('https://motion-mat.net/wp-json/wp/v2/posts')
+let posts = await res.json()
 ---
 
 <MainLayout title='Website title' description='Website Description'>
@@ -31,29 +12,14 @@ const data = await wpquery({
 			<h1 class='text-center text-5xl pb-10 block'>Мақалалар</h1>
 			<div class='grid grid-cols-3 gap-5 py-10'>
 				{
-					data.posts.nodes.map((post: any) => {
-						return (
-							<article class='post-preview '>
-								<div class='card bg-[#3538AD] rounded-2xl overflow-hidden'>
-									{post.featuredImage ? (
-										<img
-											class='w-full h-[270px] object-cover'
-											src={post.featuredImage.node.mediaItemUrl}
-											srcset={post.featuredImage.node.srcSet}
-											sizes={post.featuredImage.node.sizes}
-											alt={post.featuredImage.node.alt}
-										/>
-									) : null}
-
-									<div class='card-body p-4'>
-										<a class='text-2xl' href={`/blog/${post.slug}`}>
-											{post.title}
-										</a>
-									</div>
-								</div>
-							</article>
-						)
-					})
+					posts.map(post => (
+						<article class='post-preview'>
+							<h2>
+								<a href={`blog/${post.slug}/`} set:html={post.title.rendered} />
+							</h2>
+							<Fragment set:html={post.content.rendered} />
+						</article>
+					))
 				}
 			</div>
 		</div>
