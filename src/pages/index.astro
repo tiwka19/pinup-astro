@@ -1,7 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro'
 import Games from '../components/Games'
-
 import { wpquery } from '../data/wordpress'
 
 const data = await wpquery({
@@ -36,7 +35,6 @@ const data = await wpquery({
 				керек екендігінің ҮЗДІК-5 себебін ұсынамыз!
 			</p>
 			<Games client:load />
-
 			<article class='prose prose-invert prose-lg max-w-full mb-5'>
 				<h2>
 					1.Cенің назарына, дәл pin up онлайн-казиносын тандау керек екендігінің

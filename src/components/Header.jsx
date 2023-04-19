@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 const navLinks = [
 	{ title: 'Басты бет', url: '/' },
@@ -24,7 +25,13 @@ const Header = () => {
 						<button
 							className='p-2 text-gray-700 rounded-md outline-none'
 							onClick={() => setNavbar(!navbar)}
-						></button>
+						>
+							{navbar ? (
+								<XMarkIcon className='h-6 w-6 text-white' />
+							) : (
+								<Bars3Icon className='h-6 w-6 text-white' />
+							)}
+						</button>
 					</div>
 				</div>
 
