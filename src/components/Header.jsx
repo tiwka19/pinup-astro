@@ -21,18 +21,6 @@ const Header = () => {
 							className='w-[120px] md:w-full'
 						></img>
 					</a>
-					<div className='md:hidden'>
-						<button
-							className='p-2 text-gray-700 rounded-md outline-none'
-							onClick={() => setNavbar(!navbar)}
-						>
-							{navbar ? (
-								{/* <XMarkIcon className='h-6 w-6 text-white' /> */}
-							) : (
-								{/* <Bars3Icon className='h-6 w-6 text-white' /> */}
-							)}
-						</button>
-					</div>
 				</div>
 
 				<div

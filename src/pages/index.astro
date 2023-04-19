@@ -1,29 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro'
 import Games from '../components/Games'
-import { wpquery } from '../data/wordpress'
-
-const data = await wpquery({
-	query: `
-			query LoadPostsExcerpt {
-				posts {
-					nodes {
-						slug
-						title
-						excerpt
-						featuredImage {
-							node {
-								mediaItemUrl
-								sizes
-								srcSet
-								altText
-							}
-						}
-					}
-				}
-			}	
-  `,
-})
 ---
 
 <MainLayout title='Website title' description='Website Description'>

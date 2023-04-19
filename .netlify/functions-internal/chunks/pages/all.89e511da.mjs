@@ -3,12 +3,11 @@ import { dim, bold, red, yellow, cyan, green } from 'kleur/colors';
 import sizeOf from 'image-size';
 import fs from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import '../_slug_.ac2c1fab.6e7e0688.mjs';
+import '../_slug_.ac2c1fab.dff501f0.mjs';
 import { _ as __astro_tag_component__, c as createAstro, a as createComponent, r as renderTemplate, b as addAttribute, d as renderHead, e as renderComponent, m as maybeRenderHead, f as renderSlot, F as Fragment, u as unescapeHTML } from '../astro.7f0c1181.mjs';
 import { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import { Tab } from '@headlessui/react';
-import { XMarkIcon, Bars3Icon, MagnifyingGlassIcon, ChevronDoubleRightIcon } from '@heroicons/react/24/solid';
 /* empty css                           */import { jsx, jsxs } from 'react/jsx-runtime';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
@@ -338,9 +337,9 @@ const Header = () => {
     className: "w-full bg-black shadow",
     children: /* @__PURE__ */ jsxs("div", {
       className: "container justify-between gap-3 px-4 mx-auto  md:items-center md:flex md:px-8",
-      children: [/* @__PURE__ */ jsxs("div", {
+      children: [/* @__PURE__ */ jsx("div", {
         className: "flex items-center justify-between py-3 md:py-5 md:block",
-        children: [/* @__PURE__ */ jsx("a", {
+        children: /* @__PURE__ */ jsx("a", {
           href: "/",
           children: /* @__PURE__ */ jsx("img", {
             src: "/logo.svg",
@@ -348,18 +347,7 @@ const Header = () => {
             width: 185,
             className: "w-[120px] md:w-full"
           })
-        }), /* @__PURE__ */ jsx("div", {
-          className: "md:hidden",
-          children: /* @__PURE__ */ jsx("button", {
-            className: "p-2 text-gray-700 rounded-md outline-none",
-            onClick: () => setNavbar(!navbar),
-            children: navbar ? /* @__PURE__ */ jsx(XMarkIcon, {
-              className: "h-6 w-6 text-white"
-            }) : /* @__PURE__ */ jsx(Bars3Icon, {
-              className: "h-6 w-6 text-white"
-            })
-          })
-        })]
+        })
       }), /* @__PURE__ */ jsx("div", {
         className: `flex-1 justify-self-center p-3 py-5 md:p-0 md:block md:pb-0 md:mt-0 ${navbar ? "flex" : "hidden"}`,
         children: /* @__PURE__ */ jsx("ul", {
@@ -540,10 +528,7 @@ const Games = () => {
               placeholder: "Search",
               className: "rounded-full bg-dark py-2 px-5 text-md outline-none"
             }), /* @__PURE__ */ jsx("div", {
-              className: "absolute right-4 top-3",
-              children: /* @__PURE__ */ jsx(MagnifyingGlassIcon, {
-                className: "w-5 h-5"
-              })
+              className: "absolute right-4 top-3"
             })]
           })]
         }), /* @__PURE__ */ jsxs(Tab.Panels, {
@@ -582,12 +567,9 @@ const Games = () => {
               }, index))
             }), /* @__PURE__ */ jsx("div", {
               className: "text-end",
-              children: /* @__PURE__ */ jsxs("a", {
+              children: /* @__PURE__ */ jsx("a", {
                 href: "",
-                className: "flex items-center justify-end gap-2 hover:text-yellow transition-colors",
-                children: ["More ", /* @__PURE__ */ jsx(ChevronDoubleRightIcon, {
-                  className: "h-5 w-5"
-                })]
+                className: "flex items-center justify-end gap-2 hover:text-yellow transition-colors"
               })
             })]
           }), /* @__PURE__ */ jsxs(Tab.Panel, {
@@ -625,12 +607,9 @@ const Games = () => {
               }, index))
             }), /* @__PURE__ */ jsx("div", {
               className: "text-end",
-              children: /* @__PURE__ */ jsxs("a", {
+              children: /* @__PURE__ */ jsx("a", {
                 href: "",
-                className: "flex items-center justify-end gap-2 hover:text-yellow transition-colors",
-                children: ["More ", /* @__PURE__ */ jsx(ChevronDoubleRightIcon, {
-                  className: "h-5 w-5"
-                })]
+                className: "flex items-center justify-end gap-2 hover:text-yellow transition-colors"
               })
             })]
           })]
@@ -641,50 +620,10 @@ const Games = () => {
 };
 __astro_tag_component__(Games, "@astrojs/react");
 
-async function wpquery({ query, variables = {} }) {
-  const res = await fetch("http://pinup4.local/graphql", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      query,
-      variables
-    })
-  });
-  if (!res.ok) {
-    console.error(res);
-    return {};
-  }
-  const { data } = await res.json();
-  return data;
-}
-
 const $$Astro$2 = createAstro();
 const $$Index$1 = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Index$1;
-  await wpquery({
-    query: `
-			query LoadPostsExcerpt {
-				posts {
-					nodes {
-						slug
-						title
-						excerpt
-						featuredImage {
-							node {
-								mediaItemUrl
-								sizes
-								srcSet
-								altText
-							}
-						}
-					}
-				}
-			}	
-  `
-  });
   return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, { "title": "Website title", "description": "Website Description" }, { "default": ($$result2) => renderTemplate`
 	${maybeRenderHead($$result2)}<main>
 		<div class="container">
@@ -795,6 +734,25 @@ const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   file: $$file$2,
   url: $$url$2
 }, Symbol.toStringTag, { value: 'Module' }));
+
+async function wpquery({ query, variables = {} }) {
+  const res = await fetch("http://pinup4.local/graphql", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      query,
+      variables
+    })
+  });
+  if (!res.ok) {
+    console.error(res);
+    return {};
+  }
+  const { data } = await res.json();
+  return data;
+}
 
 const $$Astro$1 = createAstro();
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
