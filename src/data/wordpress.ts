@@ -1,7 +1,3 @@
-import dotenv from 'dotenv'
-dotenv.config()
-const API_URL = process.env.WP_URL
-
 interface WPGraphQLParams {
 	query: string
 	variables?: object
@@ -9,7 +5,7 @@ interface WPGraphQLParams {
 
 export async function fetchAPI({ query, variables = {} }: WPGraphQLParams) {
 	const headers = { 'Content-Type': 'application/json' }
-	const res = await fetch(API_URL, {
+	const res = await fetch('https://motion-mat.net/graphql', {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({ query, variables }),
