@@ -30,31 +30,7 @@ const data = await wpquery({
 		<div class='container'>
 			<h1 class='text-center text-5xl pb-10 block'>Мақалалар</h1>
 			<div class='grid grid-cols-3 gap-5 py-10'>
-				{
-					data.posts.nodes.map((post: any) => {
-						return (
-							<article class='post-preview '>
-								<div class='card bg-[#3538AD] rounded-2xl overflow-hidden'>
-									{post.featuredImage ? (
-										<img
-											class='w-full h-[270px] object-cover'
-											src={post.featuredImage.node.mediaItemUrl}
-											srcset={post.featuredImage.node.srcSet}
-											sizes={post.featuredImage.node.sizes}
-											alt={post.featuredImage.node.alt}
-										/>
-									) : null}
-
-									<div class='card-body p-4'>
-										<a class='text-2xl' href={`/blog/${post.slug}`}>
-											{post.title}
-										</a>
-									</div>
-								</div>
-							</article>
-						)
-					})
-				}
+				
 			</div>
 		</div>
 	</main>
