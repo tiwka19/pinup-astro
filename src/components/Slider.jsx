@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import styles from './Slider.module.css'
 const Slider = () => {
 	return (
 		<Swiper
@@ -11,7 +10,6 @@ const Slider = () => {
 			spaceBetween={50}
 			slidesPerView={1}
 			grabCursor={true}
-			onSlideChange={() => console.log('slide change')}
 			onSwiper={swiper => console.log(swiper)}
 			pagination={{ clickable: true }}
 			style={{
