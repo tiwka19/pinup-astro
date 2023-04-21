@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-import { isWebpSupported } from "react-image-webp/dist/utils";
+
 import "swiper/css";
 import "swiper/css/pagination";
 

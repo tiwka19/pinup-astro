@@ -14,7 +14,7 @@ const { title, description } = Astro.props;
   <MainHead title={title} description={description} />
   <body class="bg-dark min-h-full text-white text-xl font-light">
     <Header client:load />
-    <Slider client:only="react" />
+    <Slider client:load />
     <Breadcrumbs />
     <slot />
     <Footer />
