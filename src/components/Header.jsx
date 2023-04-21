@@ -22,6 +22,7 @@ const Header = () => {
               src="/logo.svg"
               alt="image"
               width={185}
+              height={70}
               className="w-[120px] xl:w-full"
             ></img>
           </a>

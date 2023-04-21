@@ -100,7 +100,7 @@ const Games = () => {
                       <LazyLoadImage
                         alt={game.title}
                         src={game.image}
-                        className="w-full"
+                        className="w-full h-[180px]"
                         width={230}
                         height={180}
                       />
@@ -137,8 +137,8 @@ const Games = () => {
                     <div className="relative group/item">
                       <LazyLoadImage
                         alt={game.title}
-                        src={game.image} // use normal <img> attributes as props
-                        className="w-full"
+                        src={game.image}
+                        className="w-full h-[180px]"
                         width={230}
                         height={180}
                       />

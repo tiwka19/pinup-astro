@@ -33,6 +33,7 @@ const Slider = () => {
             src={slide.src}
             alt={slide.alt}
             height={332}
+            width={400}
             className="w-full"
             type="image/webp"
           ></img>
