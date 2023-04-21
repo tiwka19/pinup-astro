@@ -1,15 +1,15 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { isWebpSupported } from "react-image-webp/dist/utils";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const sliders = [
-  { src: "/slider/slider-1.png", alt: "slider" },
-  { src: "/slider/slider-2.png", alt: "slider" },
-  { src: "/slider/slider-3.png", alt: "slider" },
-  { src: "/slider/slider-4.png", alt: "slider" },
+  { src: "/slider/slider-1.webp", alt: "slider" },
+  { src: "/slider/slider-2.webp", alt: "slider" },
+  { src: "/slider/slider-3.webp", alt: "slider" },
+  { src: "/slider/slider-4.webp", alt: "slider" },
 ];
 
 const Slider = () => {
@@ -29,7 +29,13 @@ const Slider = () => {
     >
       {sliders.map((slide) => (
         <SwiperSlide className="w-full">
-          <img src={slide.src} alt={slide.alt} width={1440} height={332} className="w-full"></img>
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            height={332}
+            className="w-full"
+            type="image/webp"
+          ></img>
         </SwiperSlide>
       ))}
     </Swiper>
