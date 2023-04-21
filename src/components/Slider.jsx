@@ -29,7 +29,7 @@ const Slider = () => {
     >
       {sliders.map((slide) => (
         <SwiperSlide className="w-full">
-          <img src={slide.src} alt={slide.alt} className="w-full"></img>
+          <img src={slide.src} alt={slide.alt} width={1440} height={332} className="w-full"></img>
         </SwiperSlide>
       ))}
     </Swiper>
