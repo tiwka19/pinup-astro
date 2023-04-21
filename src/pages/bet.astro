@@ -1,50 +1,63 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Games from "../components/Games";
-import { fetchAPI } from "../data/wordpress";
 import { Image } from "@astrojs/image/components";
-import localImage from "../../public/main.png";
-
-const data = await fetchAPI({
-  query: `
-	query LoadPostsExcerpt {
-			posts(first: 2) {
-				nodes {
-					slug
-					title
-					excerpt
-					featuredImage {
-						node {
-							mediaItemUrl
-							sizes
-							srcSet
-							altText
-						}
-					}
-					seo {
-						title
-						metaDesc
-						canonical
-					}
-				}
-			}
-		}
-	`,
-});
+import betImageTop from "../../public/bet-1.png";
 ---
 
 <MainLayout title="Website title" description="Website Description">
   <div class="container px-5 py-8">
     <h1 class="text-2xl md:text-4xl mb-5 font-bold">
-      Cенің назарына, дәл pin up онлайн-казиносын тандау керек екендігінің
-      ҮЗДІК-5 себебін ұсынамыз!
+      Pin up казиносындағы ставкалар
     </h1>
 
-    <p class="max-w-[880px]">
-      Pin up онлайн-казиносы неліктен сенің сеніміңе толықтай лайық екенің
-      білмейсің бе?! Онда сенің назарына, дәл pin up онлайн-казиносын тандау
-      керек екендігінің ҮЗДІК-5 себебін ұсынамыз!
-    </p>
+    <div class="bg-[#201A40] p-5 rounded font-light mb-10">
+      <p class="mb-5">
+        Егер сең, Pin-Up сайтында ставка жасағың келсе, онда бар болғаны, тіркеу
+        мен сәйкестендіру рәсімдерінен өтуін керек! Бұл негізінен жалғыз және
+        міндетті шарт. Тіркелу қажеттілігінің себебі – жұмыс айнасында тегін
+        режимдердің болмауында. Әрине, егер сен қызығушылық танытсаң, pin up
+        онлайн-казиносында демо режимінде де, құмар ойындарды көруіне болады.
+        Бірақ кез-келген жағдайда, біздің казинода ставкалар қоюын үшін, сенің
+        тіркелуін міндетті болып табылады.
+      </p>
+      <p>
+        Енді сен тіркелдің, тексеруден өттің және шотты толтырдың делік. Енді
+        Pin-Up сайтында ставка жасауға кіріс. Келесі нұсқаулықты орында: 1)
+        Режимдердің бірін таңда: сызық (линия) немесе live. 2) Өзіне, яғни саған
+        қажет оқиғаны нұқы. 3) Ары қарай, таңдаған нәтиже коэффициентін нұқы. 4)
+        Ставканың мөлшерін енгізіп, "ставка жасау" түймесін бас. Болды! Біздің
+        Pin up онлайн казиносында спорттық ставкаларды қоюды үйрендің!
+      </p>
+    </div>
+
+    <div class="bg-purpur py-10 px-7 rounded">
+      <div class="flex items-center gap-5">
+        <Image
+          src={betImageTop}
+          width={596}
+          height={361}
+          alt="bet image"
+          class="w-full"
+        />
+        <div class="flex flex-col items-start gap-5">
+          <h2 class="text-3xl font-semibold">
+            Pin up казиносындағы ставкалар !
+          </h2>
+          <p class="text-2xl">
+            Бізде – танымал спорт түрлеріндегі негізгі чемпионаттардың жоғары
+            бағаларымен ерекшеленеді. Бұл дәл betting pin up-қа қоюдың тағы да
+            бірден-бір себебі!
+          </p>
+          <a
+            href="#"
+            class="button bg-yellow text-black font-semibold rounded-full py-2 px-12 text-center uppercase"
+            >mərc et
+          </a>
+        </div>
+      </div>
+    </div>
+
     <Games client:load />
     <article class="prose prose-invert prose-md md:prose-lg max-w-full mb-5">
       <h2>
@@ -118,14 +131,6 @@ const data = await fetchAPI({
           паролі жасалады. Бұл дегеніміз – сенімді жүйенің арқасында сенің ақшаң
           қорғалып, тура өзіне түседі.
         </p>
-
-        <Image
-          src={localImage}
-          alt="main image"
-          class="w-full"
-          width={658}
-          height={343}
-        />
       </div>
       <p>
         Байқағанындай, біздің күшті жақтарымыз – жылдам қаражат тұжырымдары,
@@ -139,41 +144,5 @@ const data = await fetchAPI({
         ұтып алу бұйырып тұрған шығар! Бағыңды сына – ойңа! Жеңіскер атаң!
       </p>
     </article>
-  </div>
-
-  <h2 class="text-center text-4xl mb-6">Мақалалар</h2>
-  <div class="bg-[#201A40] mb-14">
-    <div class="container px-5">
-      <div class="grid grid-cols-2 gap-5 py-10">
-        {
-          data.posts.nodes.map((post: any) => {
-            return (
-              <article class="post-preview ">
-                <div class="card bg-[#3538AD] rounded-2xl overflow-hidden">
-                  {post.featuredImage ? (
-                    <Image
-                      src={post.featuredImage.node.mediaItemUrl}
-                      alt={post.featuredImage.node.altText}
-                      srcset={post.featuredImage.node.srcSet}
-                      sizes={post.featuredImage.node.sizes}
-                      class="w-full"
-                      width={626}
-                      height={271}
-                      format="png"
-                    />
-                  ) : null}
-
-                  <div class="card-body p-4">
-                    <a class="text-2xl" href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </a>
-                  </div>
-                </div>
-              </article>
-            );
-          })
-        }
-      </div>
-    </div>
   </div>
 </MainLayout>

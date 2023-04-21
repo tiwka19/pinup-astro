@@ -65,7 +65,10 @@ const Games = () => {
       <h2 className="mb-3 text-2xl font-semibold">Games:</h2>
       <div className="bg-purpur px-6 py-7 rounded-md">
         <Tab.Group>
-          <Tab.List className="mb-5 flex flex-col items-start md:flex-row md:items-center">
+          <Tab.List
+            className="mb-5 flex flex-col items-start md:flex-row md:items-center"
+            role="tablist"
+          >
             <div className="flex items-start md:items-center gap-5 mb-5">
               <Tab className=" ui-selected:text-yellow ui-not-selected:text-white outline-none">
                 All games
@@ -74,12 +77,12 @@ const Games = () => {
                 Most popular
               </Tab>
             </div>
-
             <form
               className="md:ms-auto relative w-full md:w-auto"
               action="https:/vk.com"
             >
               <input
+                role="search"
                 type="text"
                 placeholder="Search"
                 aria-label="search game"
@@ -90,7 +93,7 @@ const Games = () => {
           </Tab.List>
           <Tab.Panels>
             <Tab.Panel>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-5">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-10">
                 {AllGames.map((game, index) => (
                   <li
                     key={index}
@@ -101,7 +104,7 @@ const Games = () => {
                         alt={game.title}
                         src={game.image}
                         className="w-full h-[180px]"
-                        width={230}
+                        width={240}
                         height={180}
                       />
                       <button
@@ -128,7 +131,7 @@ const Games = () => {
               </ul>
             </Tab.Panel>
             <Tab.Panel>
-              <ul className="columns-5 mb-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-10">
                 {MostPopularGames.map((game, index) => (
                   <li
                     key={index}
@@ -139,7 +142,7 @@ const Games = () => {
                         alt={game.title}
                         src={game.image}
                         className="w-full h-[180px]"
-                        width={230}
+                        width={240}
                         height={180}
                       />
                       <button

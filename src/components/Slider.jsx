@@ -28,13 +28,12 @@ const Slider = () => {
       }}
     >
       {sliders.map((slide) => (
-        <SwiperSlide className="w-full">
+        <SwiperSlide>
           <img
             src={slide.src}
             alt={slide.alt}
-            height={332}
-            width={400}
-            className="w-full"
+            height={330}
+            className="w-full max-h-[330px]"
             type="image/webp"
           ></img>
         </SwiperSlide>
