@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import { Tab } from '@headlessui/react'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import './Games.css'
 const AllGames = [
@@ -65,41 +65,51 @@ const Games = () => {
 			<h2 className='mb-3 text-2xl font-semibold'>Games:</h2>
 			<div className='bg-purpur px-6 py-7 rounded-md'>
 				<Tab.Group>
-					<Tab.List className='mb-5 flex items-center'>
-						<Tab className=' ui-selected:text-yellow ui-not-selected:text-white me-4 outline-none'>
-							All games
-						</Tab>
-						<Tab className='ui-selected:text-yellow ui-not-selected:text-white outline-none'>
-							Most popular
-						</Tab>
-						<form className='ms-auto relative' action='https:/vk.com'>
+					<Tab.List
+						className='mb-5 flex flex-col items-start md:flex-row md:items-center'
+						role='tablist'
+					>
+						<div className='flex items-start md:items-center gap-5 mb-5'>
+							<Tab className=' ui-selected:text-yellow ui-not-selected:text-white outline-none'>
+								All games
+							</Tab>
+							<Tab className='ui-selected:text-yellow ui-not-selected:text-white outline-none'>
+								Most popular
+							</Tab>
+						</div>
+						<form
+							className='md:ms-auto relative w-full md:w-auto'
+							action='https:/vk.com'
+						>
 							<input
+								role='search'
 								type='text'
 								placeholder='Search'
-								className='rounded-full bg-dark py-2 px-5 text-md outline-none'
+								aria-label='search game'
+								className='rounded-full bg-dark py-2 px-5 text-md w-full outline-none'
 							/>
-							<div className='absolute right-4 top-3'>
-						
-							</div>
+							<div className='absolute right-4 top-3'></div>
 						</form>
 					</Tab.List>
 					<Tab.Panels>
 						<Tab.Panel>
-							<ul className='columns-5 mb-3'>
+							<ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-10'>
 								{AllGames.map((game, index) => (
 									<li
 										key={index}
 										className='bg-dark rounded-lg w-full overflow-hidden'
 									>
 										<div className='relative group/item'>
-											<img
-												src={game.image}
+											<LazyLoadImage
 												alt={game.title}
-												className='h-[180px]  w-full rounded'
+												src={game.image}
+												className='w-full h-[180px]'
+												width={240}
+												height={180}
 											/>
 											<button
 												className='group/edit invisible absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-											group-hover/item:visible bg-dark p-3 rounded-md w-[170px] text-center transition-colors hover:bg-white hover:text-black'
+						group-hover/item:visible bg-dark p-3 rounded-md w-[170px] text-center transition-colors hover:bg-white hover:text-black'
 											>
 												Play
 											</button>
@@ -119,27 +129,21 @@ const Games = () => {
 									</li>
 								))}
 							</ul>
-							<div className='text-end'>
-								<a
-									href=''
-									className='flex items-center justify-end gap-2 hover:text-yellow transition-colors'
-								>
-		
-								</a>
-							</div>
 						</Tab.Panel>
 						<Tab.Panel>
-							<ul className='columns-5 mb-3'>
+							<ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-10'>
 								{MostPopularGames.map((game, index) => (
 									<li
 										key={index}
 										className='bg-dark rounded-lg w-full overflow-hidden'
 									>
 										<div className='relative group/item'>
-											<img
-												src={game.image}
+											<LazyLoadImage
 												alt={game.title}
-												className='h-[180px] w-full rounded'
+												src={game.image}
+												className='w-full h-[180px]'
+												width={240}
+												height={180}
 											/>
 											<button
 												className='group/edit invisible absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
@@ -163,14 +167,6 @@ const Games = () => {
 									</li>
 								))}
 							</ul>
-							<div className='text-end'>
-								<a
-									href=''
-									className='flex items-center justify-end gap-2 hover:text-yellow transition-colors'
-								>
-							
-								</a>
-							</div>
 						</Tab.Panel>
 					</Tab.Panels>
 				</Tab.Group>
