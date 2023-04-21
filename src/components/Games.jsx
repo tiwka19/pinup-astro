@@ -98,14 +98,14 @@ const Games = () => {
                     <div className="relative group/item">
                       <LazyLoadImage
                         alt={game.title}
-                        src={game.image} // use normal <img> attributes as props
+                        src={game.image}
                         className="w-full"
                         width={230}
                         height={180}
                       />
                       <button
                         className="group/edit invisible absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-											group-hover/item:visible bg-dark p-3 rounded-md w-[170px] text-center transition-colors hover:bg-white hover:text-black"
+						group-hover/item:visible bg-dark p-3 rounded-md w-[170px] text-center transition-colors hover:bg-white hover:text-black"
                       >
                         Play
                       </button>

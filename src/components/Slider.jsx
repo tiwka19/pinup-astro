@@ -1,15 +1,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Lazy, Pagination } from "swiper";
+import {Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 const Slider = () => {
   return (
     <Swiper
-      modules={[Pagination, Lazy]}
+      modules={[Pagination]}
       slidesPerView={1}
       grabCursor={true}
-      onSwiper={(swiper) => console.log(swiper)}
       pagination={{ clickable: true }}
       style={{
         "--swiper-pagination-color": "#FFF",
@@ -24,7 +23,6 @@ const Slider = () => {
           src="/slider/slider-1.png"
           alt="slider image"
           className="w-full"
-		  loading="lazy"
         ></img>
       </SwiperSlide>
       <SwiperSlide className="w-full">
@@ -32,7 +30,6 @@ const Slider = () => {
           src="/slider/slider-2.png"
           alt="slider image"
           className="w-full"
-		  loading="lazy"
         ></img>
       </SwiperSlide>
       <SwiperSlide className="w-full">
@@ -40,7 +37,6 @@ const Slider = () => {
           src="/slider/slider-3.png"
           alt="slider image"
           className="w-full"
-		  loading="lazy"
         ></img>
       </SwiperSlide>
       <SwiperSlide className="w-full">
@@ -48,7 +44,6 @@ const Slider = () => {
           src="/slider/slider-4.png"
           alt="slider image"
           className="w-full"
-		  loading="lazy"
         ></img>
       </SwiperSlide>
     </Swiper>
