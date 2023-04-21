@@ -82,6 +82,7 @@ const Games = () => {
               <input
                 type="text"
                 placeholder="Search"
+                aria-label="search game"
                 className="rounded-full bg-dark py-2 px-5 text-md w-full outline-none"
               />
               <div className="absolute right-4 top-3"></div>
@@ -125,12 +126,6 @@ const Games = () => {
                   </li>
                 ))}
               </ul>
-              <div className="text-end">
-                <a
-                  href="#"
-                  className="flex items-center justify-end gap-2 hover:text-yellow transition-colors"
-                ></a>
-              </div>
             </Tab.Panel>
             <Tab.Panel>
               <ul className="columns-5 mb-3">
@@ -169,12 +164,6 @@ const Games = () => {
                   </li>
                 ))}
               </ul>
-              <div className="text-end">
-                <a
-                  href="#"
-                  className="flex items-center justify-end gap-2 hover:text-yellow transition-colors"
-                ></a>
-              </div>
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
