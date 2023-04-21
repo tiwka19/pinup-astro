@@ -161,7 +161,7 @@ const data = await fetchAPI({
                     {post.featuredImage ? (
                       <Image
                         src={post.featuredImage.node.mediaItemUrl}
-                        alt={post.featuredImage.node.alt}
+                        alt={post.featuredImage.node.altText}
                         srcset={post.featuredImage.node.srcSet}
                         sizes={post.featuredImage.node.sizes}
                         class="w-full"
