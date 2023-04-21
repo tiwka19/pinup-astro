@@ -26,7 +26,7 @@ const Header = () => {
             ></img>
           </a>
           <div className="xl:hidden">
-            <button className="outline-none" onClick={() => setNavbar(!navbar)}>
+            <button className="outline-none" aria-label="menu button"  onClick={() => setNavbar(!navbar)}>
               {navbar ? (
                 <BiX className="h-6 w-6" />
               ) : (

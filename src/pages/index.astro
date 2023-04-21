@@ -2,6 +2,8 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Games from "../components/Games";
 import { fetchAPI } from "../data/wordpress";
+import { Image } from "@astrojs/image/components";
+import localImage from "../../public/main.png";
 
 const data = await fetchAPI({
   query: `
@@ -122,7 +124,14 @@ const data = await fetchAPI({
               мен паролі жасалады. Бұл дегеніміз – сенімді жүйенің арқасында
               сенің ақшаң қорғалып, тура өзіне түседі.
             </p>
-            <img src="/main.png" alt="main image" class="w-full" />
+
+            <Image
+              src={localImage}
+              alt="main image"
+              class="w-full"
+              width={658}
+              height={343}
+            />
           </div>
           <p>
             Байқағанындай, біздің күшті жақтарымыз – жылдам қаражат тұжырымдары,
@@ -150,12 +159,14 @@ const data = await fetchAPI({
                 <article class="post-preview ">
                   <div class="card bg-[#3538AD] rounded-2xl overflow-hidden">
                     {post.featuredImage ? (
-                      <img
-                        class="w-full h-[270px] object-cover"
+                      <Image
                         src={post.featuredImage.node.mediaItemUrl}
+                        alt={post.featuredImage.node.alt}
                         srcset={post.featuredImage.node.srcSet}
                         sizes={post.featuredImage.node.sizes}
-                        alt={post.featuredImage.node.alt}
+                        class="w-full"
+                        width={626}
+                        height={271}
                       />
                     ) : null}
 

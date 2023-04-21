@@ -127,7 +127,7 @@ const Games = () => {
               </ul>
               <div className="text-end">
                 <a
-                  href=""
+                  href="#"
                   className="flex items-center justify-end gap-2 hover:text-yellow transition-colors"
                 ></a>
               </div>
@@ -171,7 +171,7 @@ const Games = () => {
               </ul>
               <div className="text-end">
                 <a
-                  href=""
+                  href="#"
                   className="flex items-center justify-end gap-2 hover:text-yellow transition-colors"
                 ></a>
               </div>

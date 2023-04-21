@@ -1,8 +1,17 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Pagination } from "swiper";
+import { Pagination } from "swiper";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "swiper/css";
 import "swiper/css/pagination";
+
+const sliders = [
+  { src: "/slider/slider-1.png", alt: "slider" },
+  { src: "/slider/slider-2.png", alt: "slider" },
+  { src: "/slider/slider-3.png", alt: "slider" },
+  { src: "/slider/slider-4.png", alt: "slider" },
+];
+
 const Slider = () => {
   return (
     <Swiper
@@ -18,34 +27,17 @@ const Slider = () => {
         "--swiper-pagination-bullet-horizontal-gap": "7px",
       }}
     >
-      <SwiperSlide className="w-full">
-        <img
-          src="/slider/slider-1.png"
-          alt="slider image"
-          className="w-full"
-        ></img>
-      </SwiperSlide>
-      <SwiperSlide className="w-full">
-        <img
-          src="/slider/slider-2.png"
-          alt="slider image"
-          className="w-full"
-        ></img>
-      </SwiperSlide>
-      <SwiperSlide className="w-full">
-        <img
-          src="/slider/slider-3.png"
-          alt="slider image"
-          className="w-full"
-        ></img>
-      </SwiperSlide>
-      <SwiperSlide className="w-full">
-        <img
-          src="/slider/slider-4.png"
-          alt="slider image"
-          className="w-full"
-        ></img>
-      </SwiperSlide>
+      {sliders.map((slide) => (
+        <SwiperSlide className="w-full">
+          <LazyLoadImage
+            alt={slide.alt}
+            src={slide.src}
+            className="w-full"
+            width={1440}
+            height={332}
+          />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
