@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro'
 import Games from '../components/Games'
+import { Image } from '@astrojs/image/components'
 ---
 
 <MainLayout title='Website title' description='Website Description'>
@@ -84,7 +85,7 @@ import Games from '../components/Games'
 						Осылайша ойыншының жеке логині мен паролі жасалады. Бұл дегеніміз –
 						сенімді жүйенің арқасында сенің ақшаң қорғалып, тура өзіне түседі.
 					</p>
-					<img src='/main.png' alt='main image' />
+					<Image src='/main.png' alt='main image' width={658} height={343} />
 				</div>
 				<p>
 					Байқағанындай, біздің күшті жақтарымыз – жылдам қаражат тұжырымдары,
