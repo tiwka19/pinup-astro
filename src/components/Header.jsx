@@ -50,10 +50,10 @@ const Header = () => {
           </ul>
         </div>
         <div className="items-center gap-5 hidden xl:flex">
-          <a href="" className="py-2 px-6 border-2 border-purpur rounded-full">
+          <a href="javascript:void(0)" className="py-2 px-6 border-2 border-purpur rounded-full">
             Вход
           </a>
-          <a href="" className="py-2 px-6 text-black bg-yellow rounded-full">
+          <a href="javascript:void(0)" className="py-2 px-6 text-black bg-yellow rounded-full">
             Регистрация
           </a>
         </div>
