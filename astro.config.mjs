@@ -9,11 +9,11 @@ export default defineConfig({
   integrations: [tailwind(), react(), image()],
   output: 'server',
   adapter: netlify(),
-  vite: {
-    build: {
-      rollupOptions: {
-        external: 'astro-headless-ui',
-      },
-    },
-  },
+  // vite: {
+  //   build: {
+  //     rollupOptions: {
+  //       external: 'astro-headless-ui',
+  //     },
+  //   },
+  // },
 });
