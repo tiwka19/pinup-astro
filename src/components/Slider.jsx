@@ -27,8 +27,8 @@ const Slider = () => {
         "--swiper-pagination-bullet-horizontal-gap": "7px",
       }}
     >
-      {sliders.map((slide) => (
-        <SwiperSlide>
+      {sliders.map((slide, index) => (
+        <SwiperSlide key={index}>
           <img
             src={slide.src}
             alt={slide.alt}

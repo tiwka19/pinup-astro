@@ -59,6 +59,8 @@ const MostPopularGames = [
 	},
 ]
 
+const shuffle = arr => [...arr].sort(() => Math.random() - 0.5)
+
 const Games = () => {
 	return (
 		<div className='py-5'>
@@ -94,7 +96,7 @@ const Games = () => {
 					<Tab.Panels>
 						<Tab.Panel>
 							<ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-3 gap-10'>
-								{AllGames.map((game, index) => (
+								{shuffle(AllGames).map((game, index) => (
 									<li
 										key={index}
 										className='bg-dark rounded-lg w-full overflow-hidden'

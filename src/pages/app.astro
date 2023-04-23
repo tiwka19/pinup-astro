@@ -1,0 +1,25 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Games from '../components/Games';
+import { Image } from '@astrojs/image/components';
+import appImageTop from '../../public/app/app-logo.png';
+import appPhone from '../../public/bet-2.png';
+---
+
+<MainLayout title="Website title" description="Website Description">
+  <div class="container px-5 py-10">
+    <h1 class="text-2xl md:text-4xl mb-5 font-bold">Pin Up мобильді қосымшасы</h1>
+    <div class="flex flex-col md:flex-row gap-5">
+      <p>
+        Бізде, мобильді құрылғыларды пайдаланушыларға деген керемет ұсынысымыз бар! Қандай – деп
+        сұрайсың ба? Ол pin up онлайн-казиносының, ыңғайлы Pinup BC iOS және Android операциялық
+        жүйелеріне арналған мобильді қосымшалары. Олар толық функционалдылыққа ие. Соның ішінде
+        қаражатты енгізу және шығару, сондай-ақ тікелей бейнетрансляцияларды көру мүмкіндіктері бар.
+        Және сен оларды букмекерлік кеңсенің мобильді нұсқасындағы тиісті батырмалардың көмегімен
+        жүктей аласың.
+      </p>
+      <Image src={appImageTop} width={241} height={230} alt="image" />
+    </div>
+
+  </div>
+</MainLayout>

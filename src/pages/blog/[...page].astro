@@ -1,0 +1,76 @@
+---
+// src/posts/[...page].astro
+import MainLayout from '../../layouts/MainLayout.astro'
+import { fetchAPI } from '../../data/wordpress'
+import { Paginate, Pagination } from 'astro-headless-ui'
+import './pagination.css'
+
+const { page: pageNumber } = Astro.params
+
+const data = await fetchAPI({
+	query: `
+	query LoadPostsExcerpt {
+			posts {
+				nodes {
+					slug
+					title
+					excerpt
+					featuredImage {
+						node {
+							mediaItemUrl
+							sizes
+							srcSet
+							altText
+						}
+					}
+				}
+			}
+		}
+	`,
+})
+---
+
+<MainLayout title='Website title' description='Website Description'>
+	<div class='container px-5 py-8'>
+		<Paginate data={data.posts.nodes} size='3' page={pageNumber}>
+			{
+				page => (
+					<>
+						<div class='grid grid-cols-3 gap-5 py-10'>
+							{page.data.map(post => (
+								<article class='post-preview '>
+									<div class='card bg-[#3538AD] rounded-2xl overflow-hidden'>
+										{post.featuredImage ? (
+											<img
+												class='w-full h-[270px] object-cover'
+												src={post.featuredImage.node.mediaItemUrl}
+												srcset={post.featuredImage.node.srcSet}
+												sizes={post.featuredImage.node.sizes}
+												alt={post.featuredImage.node.alt}
+											/>
+										) : null}
+
+										<div class='card-body p-4'>
+											<a class='text-2xl transition-colors hover:text-yellow' href={`/blog/posts/${post.slug}`}>
+												{post.title}
+											</a>
+										</div>
+									</div>
+								</article>
+							))}
+						</div>
+
+						<nav class='pagination flex items-center justify-center gap-4'>
+							<Pagination
+								index
+								url='/blog'
+								total={page.last}
+								current={page.current}
+							/>
+						</nav>
+					</>
+				)
+			}
+		</Paginate>
+	</div>
+</MainLayout>
