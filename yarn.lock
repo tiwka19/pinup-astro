@@ -498,11 +498,6 @@
   dependencies:
     tsm "^2.1.4"
 
-"@react-icons/all-files@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@react-icons/all-files/-/all-files-4.1.0.tgz"
-  integrity sha512-hxBI2UOuVaI3O/BhQfhtb4kcGn9ft12RWAFVMUeNjqqhLsHvFtzIkFaptBJpFDANTKoDfdVoHTKZDlwKCACbMQ==
-
 "@tailwindcss/typography@^0.5.9":
   version "0.5.9"
   resolved "https://registry.npmjs.org/@tailwindcss/typography/-/typography-0.5.9.tgz"
@@ -726,6 +721,11 @@ array-iterate@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/array-iterate/-/array-iterate-2.0.1.tgz"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
+
+astro-headless-ui@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.npmjs.org/astro-headless-ui/-/astro-headless-ui-0.0.30.tgz"
+  integrity sha512-Txj0uoZBa2kY+3Uqcc+fSGpCZpxZkHd2zGo24Nac3r2TDrbEYNAGQH3BiUcUhQzTSpeDvqAvr1S5vcM96sviLQ==
 
 astro-i18next@^1.0.0-beta.21:
   version "1.0.0-beta.21"
@@ -2918,11 +2918,6 @@ react-dom@^17.0.0:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-icons@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.8.0.tgz"
-  integrity sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==
-
 react-image-webp@^0.8.0:
   version "0.8.0"
   resolved "https://registry.npmjs.org/react-image-webp/-/react-image-webp-0.8.0.tgz"
@@ -2944,7 +2939,7 @@ react-simple-star-rating@^5.1.7:
   resolved "https://registry.npmjs.org/react-simple-star-rating/-/react-simple-star-rating-5.1.7.tgz"
   integrity sha512-NTFkW8W3uwvI82Fv7JW5i7gmDjEZKxJmj+Z9vn+BjYIXT6ILdnU9qnSUP2cWrWN/WAUlue81f9SgM4CQcenltQ==
 
-react@*, "react@^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x", "react@^16 || ^17 || ^18", "react@^17.0.2 || ^18.0.0", react@^18.2.0, react@>=18.0.0:
+"react@^15.x.x || ^16.x.x || ^17.x.x || ^18.x.x", "react@^16 || ^17 || ^18", "react@^17.0.2 || ^18.0.0", react@^18.2.0, react@>=18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
