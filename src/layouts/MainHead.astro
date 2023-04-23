@@ -1,15 +1,62 @@
 ---
 export interface Props {
-	title: string
-	description: string
+  title: string;
+  description: string;
+  openGraph?: {
+    basic: {
+      title?: string;
+      type?: string;
+      image?: string;
+      url?: string;
+    };
+  };
+  canonical?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  ogTitle?: string;
+  ogType?: string;
+  ogImage?: string;
 }
-const { title, description } = Astro.props as Props
+
+import { SEO } from 'astro-seo';
+
+
+
+const {
+	title = 'pinup4',
+  description,
+  canonical,
+  noindex = false,
+  nofollow = false,
+  ogTitle = title,
+  ogType = 'website',
+  ogImage = 'main.png',
+} = Astro.props as Props;
+
+
 ---
 
 <head>
-	<meta charset='UTF-8' />
-	<meta name='viewport' content='width=device-width' />
-	<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-	<meta name='description' content={description} />
-	<title>{title}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <SEO
+    title={title}
+    description={description}
+    noindex={noindex}
+    nofollow={nofollow}
+    canonical={canonical}
+    openGraph={{
+      basic: {
+        title: ogTitle,
+        type: ogType,
+        image: ogImage,
+      },
+    }}
+    extend={{
+      // extending the default link tags
+      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      // extending the default meta tags
+      meta: [{ name: 'description', content: description }],
+    }}
+  />
 </head>
