@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const { slug } = Astro.params;
+
+let res = await fetch(`https://targetnode.name/motion-mat-net/wp-json/wp/v2/posts?slug=${slug}`);
+let [post] = await res.json();
+
+export async function getStaticPaths() {
+  let data = await fetch('https://targetnode.name/motion-mat-net/wp-json/wp/v2/posts');
+  let posts = await data.json();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post: post },
+  }));
+}
+---
+
+<MainLayout>
+  <div class="container px-5 py-10">
+    <h1 class="text-2xl font-bold">{post?.title?.rendered}</h1>
+    <article class="prose lg:prose-xl pt-5 prose-invert max-w-full">
+      <Fragment set:html={post?.content?.rendered} />
+    </article>
+  </div>
+</MainLayout>

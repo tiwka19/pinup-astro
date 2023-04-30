@@ -9,19 +9,23 @@ const navLinks = [
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
-<header class="w-full bg-black shadow">
-  <Astronav>
-    <div class="container justify-between gap-3 px-4 mx-auto xl:items-center xl:flex xl:px-8">
-      <div class="flex items-center justify-between py-3 xl:py-5 xl:block">
-        <a href="/">
-          <img src="/logo.svg" alt="image" width={185} height={70} class="w-[120px] xl:w-full" />
-        </a>
-        <div class="xl:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+<header class="p-5">
+  <div class="container mx-auto xl:flex justify-between items-center gap-5">
+    <Astronav>
+      <div class="flex items-center justify-between gap-6 flex-wrap">
+        <div class="flex items-center gap-5">
+          <MenuIcon class="w-6 h-6 xl:hidden" />
+          <a href="/">
+            <img src="/logo.svg" alt="image" width={185} height={70} class="w-[120px] xl:w-full" />
+          </a>
+        </div>
+        <div class="items-center gap-5 xl:hidden">
+          <a href="#" class="py-2 px-6 border-2 border-purpur rounded-full hover:bg-purpur"> Вход</a>
+          <a href="#" class="py-2 px-6 text-black bg-yellow rounded-full"> Регистрация</a>
         </div>
       </div>
-      <MenuItems class="hidden lg:flex">
-        <ul class="items-center justify-center space-y-8 xl:flex xl:space-x-6 xl:space-y-0 text-xl">
+      <MenuItems class="hidden xl:flex py-5">
+        <ul class="flex flex-col xl:flex-row gap-4 pt-5 xl:flex xl:space-x-6 xl:space-y-0 xl:pt-0 text-xl">
           {
             navLinks.map((data) => (
               <li class="hover:text-yellow transition-colors">
@@ -34,9 +38,9 @@ const currentPath = pathname.slice(1);
         </ul>
       </MenuItems>
       <div class="items-center gap-5 hidden xl:flex">
-        <a href="#" class="py-2 px-6 border-2 border-purpur rounded-full"> Вход</a>
+        <a href="#" class="py-2 px-6 border-2 border-purpur rounded-full hover:bg-purpur"> Вход</a>
         <a href="#" class="py-2 px-6 text-black bg-yellow rounded-full"> Регистрация</a>
       </div>
-    </div>
-  </Astronav>
+    </Astronav>
+  </div>
 </header>

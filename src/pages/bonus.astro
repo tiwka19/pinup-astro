@@ -1,0 +1,98 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import { Image } from '@astrojs/image/components'
+
+import bonusImageTop from '../../public/images/bonus-top.png'
+import bonusImageBottom from '../../public/images/bonus-bottom.png'
+---
+
+<MainLayout title='Main Page title' description='Main Page Description'>
+	<div class='container px-5 py-8'>
+		<h1 class='text-2xl md:text-4xl mb-5 font-bold'>
+			Pin up казиносында тіркелу үшін бонустар
+		</h1>
+		<div class='bg-purpur pt-5 pl-5 pr-5 rounded mb-7'>
+			<div class='flex flex-col lg:flex-row gap-3 items-end justify-between'>
+				<div class='max-w-[920px]'>
+					<p class='mb-5'>
+						Керемет жаңалық! Pin-up казиносы өзінің жаңа клиенттеріне алғашқы
+						тіркелуі үшін бонустар сыйлайды! Ол үшін не істеу керек деп сұрайсың
+						ба? Бар болғаны:
+					</p>
+					<ol class='list-decimal font-bold mb-5 pl-6'>
+						<li>Сервис сайтында тіркел;</li>
+						<li>Шотты бірінші рет толтыр;</li>
+						<li>Депозит мөлшеріне сәйкес бонусыңды ал!</li>
+					</ol>
+					<p class='mb-5'>
+						Көрдің бе, оп-оңай! Уақытынды кетірме! Тезірек тіркелде бонустарға
+						бөлен!
+					</p>
+					<a
+						href='#'
+						class='bg-yellow inline-block mb-8 rounded-full text-black font-bold py-2 px-6'
+					>
+						Тіркеу
+					</a>
+				</div>
+				<div class=''>
+					<Image
+						src={bonusImageTop}
+						alt='bonus'
+						width={359}
+						height={360}
+						format='png'
+						class='w-full'
+					/>
+				</div>
+			</div>
+		</div>
+		<h2 class='text-xl md:text-3xl font-bold mb-5'>
+			Pin Up казиносының бонустарын қалай қосуға болады?
+		</h2>
+		<div class='bg-[#201A40] p-5 rounded'>
+			<div class='flex flex-col md:flex-row items-center md:gap-5 mb-5'>
+				<div>
+					<p class='mb-5'>
+						Алынған бонустық кодтарды тек тіркелген пайдаланушылар ғана
+						белсендіре алады. Сондықтан бонус алу үшін алдымен Pin-Up-та ойын
+						шотын құру керек. Ол үшін экранның оң жағындағы "тіркеу" түймесін
+						бас. Ашылған терезеде келесі деректерді енгіз:
+					</p>
+					<ul class='list-disc font-bold pl-5 mb-5'>
+						<li>тегі және аты;</li>
+						<li>туған күні;</li>
+						<li>жынысы;</li>
+						<li>тұратын елі мен қаласы;</li>
+						<li>email;</li>
+						<li>ұялы телефон.</li>
+					</ul>
+				</div>
+				<Image
+					src={bonusImageBottom}
+					alt='bonus'
+					width={640}
+					height={338}
+					format='png'
+					quality={80}
+				/>
+			</div>
+			<p class='mb-5'>
+				Тіркеу мәліметтерін енгізу кезінде абай бол – олар төлқұжатта
+				көрсетілген ақпаратқа сәйкес келуі керек.
+			</p>
+			<p class='mb-5'>
+				Осылайша, байқағанындай тек тіркеліп болғаннан кейін ғана, Pin-Up
+				казиносының бонустарын іске қоса аласың. Ол үшін экранның оң жақ
+				бұрышындағы Профиль қойындысын ашып, бонустар бөліміне өт. Содан кейін
+				тиісті өріске жарнамалық кодты енгізіп, "іске қосу" түймесін басуың
+				керек.
+			</p>
+			<p class='mb-5'>
+				Сондай-ақ, казино мен спорттық ставкаларға арналған негізгі бонустар
+				алғашқы депозит салғаннан кейін қол жетімді болатындығын да еске
+				саламыз.
+			</p>
+		</div>
+	</div>
+</MainLayout>
