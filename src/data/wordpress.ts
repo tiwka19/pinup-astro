@@ -5,7 +5,7 @@ interface WPGraphQLParams {
 
 export async function fetchAPI({ query, variables = {} }: WPGraphQLParams) {
 	const headers = { 'Content-Type': 'application/json' }
-	const res = await fetch(import.meta.env.WORDPRESS_API_URL, {
+	const res = await fetch('https://targetnode.name/motion-mat-net/graphql', {
 		method: 'POST',
 		headers,
 		body: JSON.stringify({ query, variables }),
