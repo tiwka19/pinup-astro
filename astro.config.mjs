@@ -12,7 +12,5 @@ export default defineConfig({
   integrations: [tailwind(), react(), image(), sitemap(), robotsTxt()],
 	site: 'https://motion-mat.net',
   output: 'server',
-	adapter: node({
-    mode: 'standalone'
-  }),
+	adapter: netlify(),
 });
